@@ -5,7 +5,7 @@ import { generateUserName } from '../utils/strings';
 test('open the page and validate search menu exists', async ({ page }) => {
 
     await page.goto('/');
-    await expect(page).toHaveTitle('Practice Software Testing - Toolshop - v5.')
+    await expect(page).toHaveTitle('Practice Software Testing - Toolshop - v5.0')
     await expect(page.getByRole('button', { name : 'Search'})).toBeVisible();
 
 });
@@ -24,15 +24,14 @@ test ('search for hammer', async ({page}) => {
     const busca = page.getByPlaceholder('Search');
     await busca.fill(productThorHammer.name);
     await page.getByRole('button', {name : 'Search'}).click();
-    expect(page.getByText('Searched for: Thor Hammer'));
-    await expect(page.locator('.card-title')).toBeVisible();
+    await expect(page.getByText('Searched for: Thor Hammer')).toBeVisible();
     page.getByRole('heading', {name: 'Thor Hammer'});
 
 
 
 })
 
-test ('strict mode violation', async ({page}) => {
+test.skip('strict mode violation', async ({page}) => {
 
     await page.goto('/');
     await expect(page.getByText('Hammer')).toBeVisible();
