@@ -1,10 +1,17 @@
 import { Product, UserCredentials, SearchOptions } from "./types";
 
-const product:Product = {
+const productHammer:Product = {
 
     id: 1,
     name: "hammer",
     price: 5
+}
+
+const productThorHammer:Product = {
+
+    id: 2,
+    name: "thor hammer",
+    price: 6
 }
 
 const userCredentials:UserCredentials ={
@@ -18,4 +25,4 @@ const searchOptions:SearchOptions = {
     term : "produto"
 }
 
-export {product, userCredentials, searchOptions}
+export {productHammer, productThorHammer, userCredentials, searchOptions}
