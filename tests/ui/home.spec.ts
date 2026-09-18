@@ -44,3 +44,19 @@ test ('strict mode test fix', async ({page}) => {
     await page.goto('/');
     await expect(page.getByRole('heading', {name : 'Hammer', exact: true})).toBeVisible();
 })
+
+test ('validate URL without using timeSleep', async ({page}) => {
+
+    await page.goto('/');
+    await expect(page).toHaveTitle('Practice Software Testing - Toolshop - v5.0');
+    await expect(page.getByRole('button', {name:'Search'})).toBeVisible();
+})
+
+test ('searching for an invalid term', async ({page}) => {
+
+    await page.goto('/');
+    await page.getByPlaceholder('Search').fill('Invalid');
+    await page.getByRole('button', {name: 'Search'}).click();
+    await expect(page.getByText('There are no products found.')).toBeVisible();
+
+})
